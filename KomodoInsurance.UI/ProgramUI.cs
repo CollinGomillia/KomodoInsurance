@@ -11,7 +11,11 @@ namespace KomodoInsurance.UI
     public class ProgramUI
     {
         private readonly DeveloperRepo _repo = new DeveloperRepo();
+        private readonly DevTeam _devTeam = new DevTeam();
+        private readonly Developer _developer = new Developer();
+
         bool _isRunning = true;
+
         public void Run()
         {
 
@@ -23,23 +27,23 @@ namespace KomodoInsurance.UI
 
         private void RunMenu()
         {
+            #region
             Console.WriteLine("Welcome to Komodo Insurance! " +
                 "1.Create Developer" +
                 "2.View Developers" +
                 "3.Add developer to team" +
                 "4.Remove developer from team" +
-                "5.Delete Developer " +
+                "5.Delete Developer \n" +
+                "6. Create team" +
                 "6. Exit\n");
             int menuNumber;
+
             if (int.TryParse(Console.ReadLine(), out menuNumber))
             {
                 switch (menuNumber)
                 {
                     case 1:
-                        Developer developer = GetDeveloperFromUser();
-                        _repo.AddDeveloper(developer);
-                        Console.WriteLine("Added Developer!");
-                        Console.ReadKey();
+                       
                         break;
                     case 2:
                         break;
@@ -64,17 +68,19 @@ namespace KomodoInsurance.UI
                 Console.ReadKey();
                 return;
             }
+            #endregion
         }
 
-        private Developer GetDeveloperFromUser()
+        private void GetDeveloperFromUser()
         {
+            private readonly Developer developer = new Developer();
+            Developer input = new Developer();
+
             Developer developer = new Developer();
-            Console.WriteLine("What is the developer's id number?");
-            Developer.Id = Console.ReadLine();
 
-            return developer;
+            
 
-
+    
         }
         private DevTeam AddDeveloperFromUser()
         {
@@ -93,7 +99,7 @@ namespace KomodoInsurance.UI
         {
             Console.Clear();
 
-            List<Developer> listOfAllDevelopers = _developerRepo.GetDevelopers();
+            List<Developer> listOfAllDevelopers = _developer.GetDevelopers();
 
             foreach (var player in listOfAllDevelopers)
             {

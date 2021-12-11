@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace KomodoInsurance.POCO
 {
-    public class DevTeam
+    public class Developer
     {
-        public DevTeam()
+        public Developer()
         {
 
         }
 
-        public DevTeam(int id, string firstName, string lastName, bool haveAccess)
+        public Developer(int id, string firstName, string lastName, bool haveAccess)
         {
             Id = id;
             FirstName = firstName;

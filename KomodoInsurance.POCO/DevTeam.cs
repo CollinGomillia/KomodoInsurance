@@ -12,10 +12,7 @@ namespace KomodoInsurance.POCO
         {
 
         }
-        public DevTeam(DevType devTeam)
-        {
-            DevType = devTeam;
-        }
+       
 
        
 
