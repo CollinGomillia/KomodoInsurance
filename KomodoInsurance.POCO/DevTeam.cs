@@ -12,16 +12,21 @@ namespace KomodoInsurance.POCO
         {
 
         }
-       
 
-       
+        public string NameOfTeam { get; set; }
+        public int TeamId { get; set; }
+        public string Developers { get; set; }
+        public int Id { get; set; }
 
-        public DevType DevTeamNumber { get; set; }
-
-        public enum DevType
+        public DevTeam(string nameOfTeam, int teamId, string developers)
         {
-            Dev_TeamOne = 1,
-            Dev_TeamTwo
+            NameOfTeam = nameOfTeam;
+            TeamId = teamId;
+            Developers = developers;
         }
+
+
+
+
     }
 }
