@@ -8,7 +8,7 @@ using KomodoInsurance.REPO;
 
 namespace KomodoInsurance.UI
 {
-    public class ProgramUI
+   public class ProgramUI
     {
         private readonly DeveloperRepo _repo = new DeveloperRepo();
         private readonly DevTeam _devTeam = new DevTeam();
@@ -43,11 +43,13 @@ namespace KomodoInsurance.UI
                 switch (menuNumber)
                 {
                     case 1:
-                       
+                        CreateDeveloper();
                         break;
                     case 2:
+                        ViewAllDevelopers();
                         break;
                     case 3:
+
                         break;
                     case 4:
                         break;
@@ -71,30 +73,8 @@ namespace KomodoInsurance.UI
             #endregion
         }
 
-        private void GetDeveloperFromUser()
-        {
-            private readonly Developer developer = new Developer();
-            Developer input = new Developer();
 
-            Developer developer = new Developer();
-
-            
-
-    
-        }
-        private DevTeam AddDeveloperFromUser()
-        {
-            DevTeam devTeam = new DevTeam();
-            Console.WriteLine("What is the developer's id number?");
-            DevTeam.Id = Console.ReadLine();
-            Console.WriteLine("What team would you like to send developer to?\n" +
-                "1. DevTeam 1" +
-                "2. DevTeam 2");
-            DevTeam.DevType = int.Parse(Console.ReadLine()) as DevType;
-            return devTeam;
-
-
-        }
+        
         private void ViewAllDevelopers()
         {
             Console.Clear();
