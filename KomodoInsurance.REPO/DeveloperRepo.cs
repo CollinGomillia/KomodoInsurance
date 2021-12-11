@@ -7,31 +7,53 @@ using KomodoInsurance.POCO;
 
 namespace KomodoInsurance.REPO
 {
-    public class DeveloperRepo
-    {
-        private readonly List<DevTeam> _developers = new List<DevTeam>();
+    private readonly List<Developer> _developers = new List<Developer>();
 
+        private int _count = 0;
         //Crud
-        public void AddDeveloper(DevTeam developer)
+        public bool AddDeveloper(Developer developer)
         {
+            if (developer == null)
+            {
+                return false;
+            }
+            _count++;
+            developer.Id = _count;
             _developers.Add(developer);
+            return true;
         }
 
-        public List<DevTeam> GetDeveloper()
+        public List<Developer> GetDeveloper()
         {
             return _developers;
         }
 
-        public void RemoveOrder(DevTeam developer)
+        public bool RemoveDeveloper(int id)
         {
-            foreach (var developerPOCO in _developers)
+            Developer developerRemove = GetDeveloperById(id);
+            if (developerRemove == null)
             {
-                if(developerPOCO == developer)
+                return false;
+            }
+            else
+            {
+                _developers.Remove(developerRemove);
+                return true;
+            }
+        }
+
+        public Developer GetDeveloperById(int Id)
+        {
+            
+
+            foreach (Developer developer in _developers)
+            {
+                if (Id == developer.Id)
                 {
-                    _developers.Remove(developerPOCO);
-                    break;
+                    return developer;
                 }
             }
+            return null;
         }
     }
 }
